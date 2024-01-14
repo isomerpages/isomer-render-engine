@@ -25,6 +25,12 @@ export default [
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
     ],
+    onwarn: function (warning, warn) {
+      if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
+        return;
+      }
+      warn(warning);
+    },
   },
   {
     input: "dist/esm/types/index.d.ts",
