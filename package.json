@@ -1,5 +1,8 @@
 {
   "name": "@isomerpages/isomer-render-engine",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/isomerpages"
+  },
   "version": "0.0.1",
   "description": "Isomer render engine for isomer-components",
   "scripts": {
