@@ -1,11 +1,30 @@
 import React from "react";
+import { Infopic } from "@isomerpages/isomer-components";
 
-export interface ButtonProps {
-  label: string;
+interface IsomerComponent {
+  id: string;
+  order: number;
+  props: any;
 }
 
-const Button = (props: ButtonProps) => {
-  return <button>{props.label}</button>;
+interface IsomerBaseSchema {
+  id: string;
+  layout: string;
+  path: string;
+  components: IsomerComponent[];
+}
+
+const RenderEngine = ({ id, layout, path, components }: IsomerBaseSchema) => {
+  if (components && components.length > 0) {
+    const collatedComponents = components.map((component: IsomerComponent) => {
+      if (component.id === "Infopic") {
+        return <Infopic {...component.props} />;
+      }
+      return <div>Component not found</div>;
+    });
+    return collatedComponents;
+  }
+  return <h1>Hello World</h1>;
 };
 
-export default Button;
+export default RenderEngine;
