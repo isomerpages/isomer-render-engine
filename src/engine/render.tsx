@@ -29,7 +29,7 @@ const RenderEngine = ({
         return <div key={idx}>Component not found</div>;
       }
     );
-    return <>collatedComponents</>;
+    return <>{collatedComponents}</>;
   }
   return <h1>Hello World</h1>;
 };
