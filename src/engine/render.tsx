@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Infopic } from "@isomerpages/isomer-components";
+import { Button, Infopic } from "@isomerpages/isomer-components";
 
 interface IsomerComponent {
   id: string;
@@ -23,6 +23,9 @@ const RenderEngine = ({
   if (components && components.length > 0) {
     const collatedComponents = components.map(
       (component: IsomerComponent, idx: number) => {
+        if (component.id === "Button") {
+          return <Button label={component.props.label} />;
+        }
         if (component.id === "Infopic") {
           return <Infopic {...component.props} key={idx} />;
         }
