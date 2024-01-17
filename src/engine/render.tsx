@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { Button, Footer, Infopic } from "@isomerpages/isomer-components";
+import { Button, Footer, Hero, Infopic } from "@isomerpages/isomer-components";
 
 interface IsomerComponent {
   id: string;
@@ -31,6 +31,9 @@ const RenderEngine = ({
         }
         if (component.id === "Footer") {
           return <Footer />;
+        }
+        if (component.id === "Hero") {
+          return <Hero />;
         }
         return <div key={idx}>Component not found</div>;
       }
