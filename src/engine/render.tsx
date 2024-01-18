@@ -1,5 +1,5 @@
-import React, { ReactElement } from "react";
-import { Button, Footer, Hero, Infopic } from "@isomerpages/isomer-components";
+import React, { ReactElement } from 'react';
+import { Button, Footer, Hero } from '@isomerpages/isomer-components';
 
 interface IsomerComponent {
   id: string;
@@ -20,19 +20,17 @@ const RenderEngine = ({
   path,
   components,
 }: IsomerBaseSchema): ReactElement => {
+  console.log(`${id} ${layout} ${path}`);
   if (components && components.length > 0) {
     const collatedComponents = components.map(
       (component: IsomerComponent, idx: number) => {
-        if (component.id === "Button") {
+        if (component.id === 'Button') {
           return <Button label={component.props.label} />;
         }
-        if (component.id === "Infopic") {
-          return <Infopic {...component.props} key={idx} />;
-        }
-        if (component.id === "Footer") {
+        if (component.id === 'Footer') {
           return <Footer />;
         }
-        if (component.id === "Hero") {
+        if (component.id === 'Hero') {
           return <Hero />;
         }
         return <div key={idx}>Component not found</div>;
